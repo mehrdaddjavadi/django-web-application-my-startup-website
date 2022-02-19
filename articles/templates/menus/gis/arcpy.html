@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+مدیریت بحران-کنترل سیلاب
+{% endblock title %}
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">طراحی جعبه ابزار سفارشی برای ArcGIS</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+        
+
+
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+         آسمان کِشت به منظور ارتقاء سطح مهندسی نقشه برداری و سیستم اطلاعات مکانی و رفع نیاز متخصصین این حوزه توانایی
+         تولید جعبه ابزار های سفارشی برای نرم افزار ArcGIS را دارد.
+         از جمله این جعبه ابزارها:
+         <ul>
+             <li>کنترل شبکه های توزیع نیرو</li>
+             <li> گرفتن خروجی با پسوندهای سفارشی از لایه ها</li>
+         </ul>
+
+                </h4>
+                </div>
+                <br>
+               
+                <br>
+                <img class="img-fluid center" src="https://geospatialtraining.com/wp-content/uploads/2016/11/How-to-use-the-Python-window.jpg" alt="-فرونشست-subsidence-asemankesht-کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

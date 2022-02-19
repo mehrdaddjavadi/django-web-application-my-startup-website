@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <script src='{% static "myfarm/js/ol.js" %}'></script>
+    <script src='{% static "myfarm/js/ol-ext.js" %}'></script>
+    <script src='{% static "myfarm/js/OpenLayers.js" %}'></script>
+    <script src='{% static "myfarm/js/jquery-3.3.1.min.js" %}'></script>
+    <link rel="stylesheet" href="{% static 'myfarm/js/ol-ext.css' %}">
+    <script src='{% static "myfarm/js/ol-ext.js" %}'></script>
+    <meta charset="UTF-8">
+ 
+    <title>سامانه مزرعه من - آسمان کشت</title>
+    <style>
+        #map {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+
+<script>
+    map = new OpenLayers.Map("map")
+    layer = new OpenLayers.Layer.OSM()
+    map.addLayer(layer)
+    map.setCenter([0,0],1)
+
+    $.ajax(
+   {
+      type:'GET',
+      dataType: "json",
+      url:'/getwms',
+      success: function(data){
+          for (var i=0;i<data.length;i++){
+            wms = new OpenLayers.Layer.WMS(data[i].fields.layer_alias,
+            data[i].fields.server_address,
+            {layers:data[i].fields.workspace+":"+data[i].fields.layer_name,transparent:true},
+            {isBaseLayer : false}
+            
+            
+            )    
+
+            map.addLayer(wms)
+          }
+      }
+   }
+);
+
+
+
+//     var sampleView=new ol.View({
+// center:[51,32],
+// zoom:6,
+// projection:'EPSG:4326'
+// });
+
+// var osmCustomLayer = new ol.layer.Tile({ 
+// 		source: new ol.source.OSM({  
+// 		url:'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png' 
+// 		}) 
+// 		});
+
+// var map = new ol.Map({
+// 		layers: [osmCustomLayer],
+// 		//interactions: ol.interaction.defaults().extend([select, modify]),
+//         target: 'map',
+//         view: sampleView
+//         });
+		
+// var sLayer = new ol.layer.Vector({
+// 	source: new ol.source.Vector(),
+// 	style: new ol.style.Style({
+// 	image: new ol.style.Circle({
+// 	radius: 5,
+// 	stroke: new ol.style.Stroke ({
+// 	color: 'rgb(255,165,0)',
+// 	width: 3
+// 	}),
+// 	fill: new ol.style.Fill({
+// 	color: 'rgba(255,165,0,.3)'
+// 	})
+// 	}),
+// 	stroke: new ol.style.Stroke ({
+// 	color: 'rgb(255,165,0)',
+// 	width: 3
+//     }),
+// 	fill: new ol.style.Fill({
+// 	color: 'rgba(255,165,0,.3)'
+// 	})
+// 	})
+//     });
+	
+// map.addLayer(sLayer);
+
+// // Set the search control 
+// var search = new ol.control.SearchNominatim (
+// 	{//target: $(".options").get(0),
+// 	polygon: true,
+// 	reverse: true,
+// 	position: true	// Search, with priority to geo position
+// 	});
+	
+// map.addControl (search);
+
+// // Select feature when click on the reference index
+// search.on('select', function(e)
+// 	{// console.log(e);
+// 	sLayer.getSource().clear();
+// 	// Check if we get a geojson to describe the search
+// 	if (e.search.geojson) {
+// 		var format = new ol.format.GeoJSON();
+// 		var f = format.readFeature(e.search.geojson, { dataProjection: "EPSG:4326", featureProjection: map.getView().getProjection() });
+// 		sLayer.getSource().addFeature(f);
+// 		var view = map.getView();
+// 		var resolution = view.getResolutionForExtent(f.getGeometry().getExtent(), map.getSize());
+// 		var zoom = view.getZoomForResolution(resolution);
+// 		var center = ol.extent.getCenter(f.getGeometry().getExtent());
+// 		// redraw before zoom
+// 		setTimeout(function(){
+// 				view.animate({
+// 				center: center,
+// 				zoom: Math.min (zoom, 16)
+// 				});
+// 			    }, 100);}
+// 	else 
+// 		{map.getView().animate({
+// 	    center:e.coordinate,
+// 		zoom: Math.max (map.getView().getZoom(),16)
+// 		});}});	
+		
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}آسمان کِشت- صفحه اصلی{% endblock title %}
+
+{% block content %}
+<style>
+body {
+
+/* background: #FFFFFF;
+background: -webkit-linear-gradient(right, #FFFFFF, #AAF5FC);
+background: -moz-linear-gradient(right, #FFFFFF, #AAF5FC);
+background: linear-gradient(to left, #FFFFFF, #AAF5FC); */
+
+/* background: #FFFFFF;
+background: -webkit-linear-gradient(right, #FFFFFF, #C0C0C0);
+background: -moz-linear-gradient(right, #FFFFFF, #C0C0C0);
+background: linear-gradient(to left, #FFFFFF, #C0C0C0); */
+
+background: #FFFFFF;
+background: -webkit-linear-gradient(right, #FFFFFF, #EEEDED);
+background: -moz-linear-gradient(right, #FFFFFF, #EEEDED);
+background: linear-gradient(to left, #FFFFFF, #EEEDED);
+}
+
+</style>
+
+<!-- carousel -->
+
+{% include 'articles/carousel.html' %}
+
+<!-- {% comment %} carouselEnd {% endcomment %} -->
+
+
+
+{% comment %} start articles {% endcomment %}
+<br/>
+{% include "myfarm/my_farm_button.html" %}
+
+
+<div class='container container-articles'>
+{% comment %} start animation {% endcomment %}
+
+
+{% comment %} end animation {% endcomment %}
+<h1>
+  <h1> 
+  <small class="text-muted">مقالات</small>
+</h1>
+<hr class="mt-2 mb-0"/>
+<hr class="mt-0 mb-0"/>
+<hr class="mt-0 mb-5"/>
+         
+<div class="d-flex align-content-start flex-wrap bd-highlight">
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 g-4 mb-4">
+      {% for post in posts %}
+      
+          <div class="col">
+        <div class="card text-white bg-info border-primary w-200 mb-4">
+        {% if post.cover_image %}
+          <img class="card-img-top" src="{{post.cover_image}}" alt="{{post.slug}}">
+        {% endif %}
+          <div class="card-body">
+            <h4 class="card-title"> {{ post.title }}</h4>
+            <p class="card-text">{{ post.body|truncatewords:30|linebreaks }}</p>
+             <a href="{{ post.get_absolute_url }}" class="btn btn-primary">ادامه</a>
+                </div>
+                    <div class="card-footer">{{ post.publish }} </div>
+                    <!-- by {{ post.author }} -->
+                  </div>
+                  
+                                    
+
+                   
+          </div>
+           {% endfor %}
+           
+           {% include "pagination.html" with page=page_obj %}
+        </div>
+       
+       </div>
+
+       </div>
+
+   
+  
+                                  
+  
+  </div>
+ 
+</div>
+
+{% endblock content %}

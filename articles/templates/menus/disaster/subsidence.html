@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}
+مدیریت بحران-فرونشست
+{% endblock title %}
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">بررسی میزان فرونشست زمین</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+        
+
+
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+            
+                  در بخش‌های وسیعی از کشور ایران شامل مرکز، جنوب، شرق و جنوب شرق 
+                  که دارای اقلیم خشک و نیمه‌خشک هستند بارندگی‌های نامناسب، نرخ تبخیر 
+                  بالا، وقوع خشکسالی‌های درازمدت، نبود رودخانه‌های دائمی و عدم مدیریت صحیح 
+                  منابع آب در مصارف شهری و کشاورزی سبب برداشت لجام‌گسیخته از سفره‌های آب 
+                  زیرزمینی گردیده است. در این مناطق منابع آب زیرزمینی تنها منبع تأمین
+                  آب جهت مصارف شرب، صنعتی و کشاورزی هستند و برداشت بی‌رویه
+                   از این منابع سبب ازبین‌رفتن توازن آب ایستایی سفره و کاهش 
+                  نفوذپذیری آن می‌شود که نتیجه آن وقوع فرونشست در این دشت‌های 
+                  بحرانی است. فرونشست عبارت است از فروریزش یا نشست سطح زمین 
+                  به طور قائم که می‌تواند جابه‌جایی افقی اندکی نیز داشته باشد.
+                   فرونشست و در درجه اول فرونشست تفاضلی سبب تخریب زیرساخت‌های 
+                  اصلی کشور همچون بزرگراه، ساختمان‌ها، نیروگاه‌ها و سدها می‌شود
+                   باتوجه‌به وضعیت اقتصادی ایران که کشوری درحال‌توسعه است می‌توان
+                   فرونشست را عاملی محدودکننده برای توسعه پایدار منابع، محیط‌زیست
+                   و اقتصاد این کشور به‌حساب آورد. در آسمان کشت میزان فرونشست 
+                   زمین با استفاده از تصاویر راداری و تکنیک تداخل سنجی تعیین می‌گردد. علاوه
+                   بر این برای کنترل دقت و صحت عملیات، با استفاده از GNSS دقت 
+                   اینترفروگرام ارزیابی می شود.
+
+                </h4>
+                </div>
+                <br>
+                <img class="img-fluid center" src="https://www.gim-international.com/cache/4/1/7/e/c/417ecaf6c1d566fd2b7ff57805749520f5de0c52.jpeg" alt="-فرونشست-subsidence-asemankesht-کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+                
+                <br>
+                <img class="img-fluid center" src="https://www.mdpi.com/remotesensing/remotesensing-13-01651/article_deploy/html/images/remotesensing-13-01651-g014-550.jpg" alt="-فرونشست-subsidence-asemankesht-کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

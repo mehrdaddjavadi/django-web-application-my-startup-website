@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon"href="{% static 'favicon.ico' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتباط با ما</title>
+    <style>
+        body {
+            background-image:url("{% static 'articles/img/img for web/high resolution/precision agriculture.png'%}")
+             ;
+        }
+    </style>
+</head>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<form action="{% url 'contactus:contactus' %}", method="POST">{% csrf_token %}
+<div class="container contact">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="contact-info">
+				<img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+				<h2>ارتباط با ما</h2>
+				<h4 class="d-flex justify-content-center"> منتظر نظرها، صحبت ها و انتقادات شما هستیم.</h4>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="contact-form">
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="fname">نام</label>
+				  <div class="col-sm-10">          
+					<input type="text" class="form-control" id="fname" placeholder="لطفا نام خود را وارد کنید" name="fname" required>
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="lname">نام خانوادگی</label>
+				  <div class="col-sm-10">          
+					<input type="text" class="form-control" id="lname" placeholder="لطفا نام خانوادگی خود را وارد کنید" name="lname" required>
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="email">ایمیل</label>
+				  <div class="col-sm-10">
+					<input type="email" class="form-control" id="email" placeholder="لطفا ایمیل خود را وارد کنید (ورود ایمیل الزامی نیست)" name="email">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="comment">پیام شما</label>
+				  <div class="col-sm-10">
+					<textarea class="form-control" rows="5" id="comment" name="subject" required></textarea>
+				  </div>
+				</div>
+				<div class="form-group">        
+				  <div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">ارسال</button>
+				  </div>
+                  
+				</div>
+                
+			</div>
+		</div>
+	</div>
+    <br>
+    <br>
+    <br>
+</div>
+</form>
+
+<style>
+body{
+    background-color: #25274d;
+    direction: rtl;
+}
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: #ff9b00;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}</style>
+
+
+</body>
+</html>
+
+
+
+  
+<!-- <div class="container-contact100">
+    <div class="contact100-map" id="google_map" data-map-x="51.3890" data-map-y="35.6892" data-pin="{% static 'contactus/img/icons/map-marker.png' %} " data-scrollwhell="0" data-draggable="1"></div>
+
+    <div class="wrap-contact100">
+        <span class="contact100-form-symbol">
+            <img src="{% static 'icontactus/img/icons/symbol-01.png' %} " alt="SYMBOL-MAIL">
+        </span>
+
+        <form method="POST" action="" class="contact100-form validate-form flex-sb flex-w"> {% csrf_token %}
+            <span class="contact100-form-title">
+                با ما در ارتباط باشید
+            </span>
+
+            <div class="wrap-input100 rs1 validate-input" data-validate = "Name is required">
+                <input class="input100" type="text" name="name" placeholder="نام">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1 validate-input" data-validate = "Email is required: e@a.z">
+                <input class="input100" type="text" name="email" placeholder="ایمیل">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Message is required">
+                <textarea class="input100" name="message" placeholder="متن پیام"></textarea>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+                    ارسال
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div id="dropDownSelect1"></div>
+
+===============================================================================================
+<script src="{% static 'contactus/vendor/jquery/jquery-3.2.1.min.js' %} "></script>
+-->
+<!-- <script src="{% static 'contactus/vendor/animsition/js/animsition.min.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="{% static 'contactus/' %} vendor/bootstrap/js/popper.js"></script> -->
+<!-- <script src="{% static 'contactus/vendor/bootstrap/js/bootstrap.min.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="{% static 'contactus/vendor/select2/select2.min.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="{% static 'contactus/vendor/daterangepicker/moment.min.js' %} "></script> -->
+<!-- <script src=" {% static 'contactus/vendor/daterangepicker/daterangepicker.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="{% static 'contactus/vendor/countdowntime/countdowntime.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script> -->
+<!-- <script src="{% static 'contactus/js/map-custom.js' %} "></script> -->
+<!--===============================================================================================-->
+<!-- <script src="{% static 'contactus/js/main.js' %} "></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> -->
+<!-- <script> -->
+<!-- //   window.dataLayer = window.dataLayer || [];
+//   function gtag(){dataLayer.push(arguments);}
+//   gtag('js', new Date());
+
+//   gtag('config', 'UA-23581568-13');
+// </script> --> -->
+

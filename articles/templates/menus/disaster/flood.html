@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}
+مدیریت بحران-کنترل سیلاب
+{% endblock title %}
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">خدمات نظارت و کنترل سیلاب</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+        
+
+
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+            
+                    ابزارهای سنتی برای ثبت پارامترهای هیدرولوژی 
+                    اغلب در شرایط حساس به‌خوبی عمل نمی‌کنند. استفاده از فناوری سنجش‌ازدور؛ ابزاری کلیدی برای پایش سیلاب‌ها در سالیان اخیر به شمار می‌رود.
+                     پایش سیلاب‌ها از سنجش‌ازدور اپتیکی به سنجش‌ازدور راداری تکامل پیدا کرده است. 
+                    استفاده از سنجش‌ازدور اپتیکی باتوجه‌به شرایط آب‌وهوایی هنگام وقوع سیلاب
+                     ما را با چالش‌هایی روبه‌رو می‌ساخت که در سنجش‌ازدور راداری به این شکل نیست.
+                     تمرکز اصلی هنگام مواجه با سیلاب؛ تهیه
+                     نقشه پهنه‌بندی خطر مناطق آسیب‌پذیر و مشخص‌کردن
+                     مناطق سیل‌زده است. تهیه مدل رقومی زمین پیش از 
+                    وقوع بحران و مقایسه آن با سطح سیلاب؛ اطلاعات لازم
+                     جهت تخمین میزان آسیب به ما ارائه خواهد داد.
+
+                </h4>
+                </div>
+                <br>
+               
+                <br>
+                <img class="img-fluid center" src="https://www.mdpi.com/remotesensing/remotesensing-11-01589/article_deploy/html/images/remotesensing-11-01589-g001.png" alt="-فرونشست-subsidence-asemankesht-کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

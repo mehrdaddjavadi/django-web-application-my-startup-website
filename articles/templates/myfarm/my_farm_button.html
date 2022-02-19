@@ -1,0 +1,17 @@
+<div class="container">
+<h4 class="h3 m-3 p2">مزرعه من</h4>
+ {% if request.user.is_authenticated %}
+ <div class="d-grid gap-2 m-3 p3">
+  <a type="button" class="btn btn-success m-2" href="{% url 'GISapp:myfarm' %}">تکمیل مشخصات مزرعه من</a>
+
+{% else %}
+<div class="d-grid gap-2 m-2 p1">
+  <a type="button" class="btn btn-warning">تکمیل مشخصات مزرعه من</a>
+  <p style="color:red"><span class="small"><strong>شما قادر به مشاهده نیستید؛ ابتدا وارد سایت  شوید.</strong></span></p>
+</div>
+  
+</div>
+{% endif %}
+</div>
+
+

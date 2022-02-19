@@ -1,0 +1,554 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        {% block title %} {% endblock title %}
+    </title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Markazi+Text&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'articles/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'articles/css/body.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'articles/css/ol.css' %}">
+  <!-- start contactus part -->
+  <!--  -->
+<!--===============================================================================================-->
+<!-- <link rel="icon" type="image/png" href=" {% static 'contactus/img/icons/favicon.ico' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'contactus/vendor/bootstrap/css/bootstrap.min.css'%} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href=" {% static 'contactus/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'contactus/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'contactus/vendor/animate/animate.css' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'contactus/vendor/css-hamburgers/hamburgers.min.css' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'contactus/vendor/animsition/css/animsition.min.css' %} "> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static ' contactus/vendor/select2/select2.min.css' %}"> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href=" {% static 'contactus/vendor/daterangepicker/daterangepicker.css' %}"> -->
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'articles/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href= "{% static 'articles/css/main.css' %}" > -->
+  <!--  -->
+  <!-- end contact us part -->
+  <link rel="icon"href="{% static 'favicon.ico' %}">
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-light navbar-expand-lg">
+  <div class="container">
+  	<div class="mx-0 my-0 p-0">
+  		   <a href="{% url 'articles:post_list' %}" class="navbar-brand">
+    			<img src="{% static 'articles/img/asemankesht2forweb.png'%}" alt="استارت آپ آسمان کشت"  title="لوگو آسمان کشت" class="mb-0 mx-0 my-0 p-0" style="vertical-align: middle;height: 75px; width: 110px">
+				<span  class="align-middle blueLogo"> آسمان</span>
+				<span  class="align-middle greenLogo"> کِشت</span>
+    </a>
+  	</div>
+ 
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarAdvanced" aria-controls="navbarAdvanced" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarAdvanced">
+      <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+ 
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">کشاورزی و  سنجش  از دور</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+            <!-- <li>
+              <a href="#" class="dropdown-item">تشخیص آفات و بیماری گیاهان</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">محاسبه سطح زیر کشت</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">کنترل سلامت مزرعه</a>
+            </li>
+             <li>
+              <a href="#" class="dropdown-item">تعیین میزان رطوبت خاک</a>
+            </li> -->
+            <li>
+              <a href="{% url 'menus:precision_agriculture' %}" class="dropdown-item">خدمات کشاورزی دقیق</a>
+            </li>
+              <li>
+              <a href="{% url 'menus:vegetation' %}" class="dropdown-item"> تعیین تغییرات پوشش گیاهی </a>
+            </li>
+               <!-- <li>
+              <a href="#" class="dropdown-item"> کنترل جنگل زدایی و قطع درختان</a>
+            </li> -->
+               <li>
+              <a href="{% url 'menus:object_detection' %}" class="dropdown-item"> شناسایی و پایش عوارض</a>
+            </li>
+          <!--    <li>
+              <a href="#" class="dropdown-item"> </a>
+            </li> -->
+
+          </ul>
+       
+               </li>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">نقشه برداری و ژئودزی</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+            <li>
+              <a href="{% url 'menus:mapping' %}" class="dropdown-item">تهیه انواع نقشه در مقیاس های گوناگون</a>
+            </li>
+            <!-- <li>
+              <a href="#" class="dropdown-item">طراحی شبکه های میکرو ژئودزی</a>
+            </li> -->
+            <!-- <li>
+              <a href="#" class="dropdown-item">نظارت بر سلامت پل ها و سازه های عظیم</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">مستندنگاری میراث فرهنگی</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">خدمات  GNSS</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">نقشه برداری با پهپاد</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">پیاده سازی نما</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">کنترل سازه های فلزی</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">طراحی مسیر</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">نقشه برداری تونل</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">رسم و کارتوگرافی</a>
+            </li> -->
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">مدیریت بحران</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+            <li>
+              <a href="{% url 'menus:flood' %}" class="dropdown-item">خدمات نظارت و کنترل سیلاب </a>
+            </li>
+            <li>
+              <a href="{% url 'menus:subsidence' %}" class="dropdown-item">بررسی میزان فرونشست زمین</a>
+            </li>
+            <!-- <li>
+              <a href="#" class="dropdown-item">نظارت و کنترل  آتش سوزی های بزرگ</a>
+            </li> -->
+             <!-- <li>
+              <a href="#" class="dropdown-item">سرویس پهپاد برای آگاهی فوری از وضعیت</a>
+            </li> -->
+            <!-- <li>
+              <a href="#" class="dropdown-item"> بررسی میزان خسارت ناشی از زلزله</a>
+            </li> -->
+            <!-- <li>
+              <a href="#" class="dropdown-item">شناسایی جزایر حرارتی در مناطق شهری</a>
+            </li> -->
+             <!-- <li>
+              <a href="#" class="dropdown-item">شناسایی آلودگی های نفتی</a>
+            </li> -->
+            <!-- <li>
+              <a href="#" class="dropdown-item">پایش گاز های آلاینده هوا</a>
+            </li> -->
+         <!--    <li>
+              <a href="#" class="dropdown-item"></a>
+            </li> -->
+          </ul>
+        </li>
+    <!--     <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">هواشناسی</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+            <li>
+              <a href="#" class="dropdown-item">تعیین میزان کیفیت هوا و آلاینده ها</a>
+            </li>
+                <li>
+              <a href="#" class="dropdown-item">پیش بینی وضعیت آب و هوا با استفاده از تصاویر ماهواره ای</a>
+            </li>
+          
+          </ul>
+        </li> -->
+            <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">سامانه های اطلاعاتی</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+            <!-- <li>
+              <a href="#" class="dropdown-item">طراحی سامانه های  WebGIS</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">پیاده سازی GIS  سازمانی</a>
+            </li> -->
+            <li>
+              <a href="{% url 'menus:siteselection' %}" class="dropdown-item">مکانیابی مراکز خدماتی و رفاهی</a>
+            </li>
+              <!-- <li>
+              <a href="#" class="dropdown-item">کنترل شبکه های توزیع نیرو</a>
+            </li> -->
+              <li>
+              <a href="{% url 'menus:toolbox' %}" class="dropdown-item">طراحی جعبه ابزار سفارشی برای ArcGIS</a>
+            </li>
+              <!-- <li>
+              <a href="#" class="dropdown-item">پیاده سازی پایگاه داده  کاداستر</a>
+            </li> -->
+              <!-- <li>
+              <a href="#" class="dropdown-item">پیاده سازی مدل های محاسباتی و یادگیری ماشین</a>
+            </li> -->
+          </ul>
+        </li>
+
+        <!-- <div class="ml-2">
+
+
+            <li class="nav-item ms-2">
+                <a href="#" class="nav-link active" aria-current="page">مزرعه من</a>
+            </li>
+           
+        </div> -->
+         
+     
+      </ul>
+
+      <form action="" method="GET"> {% csrf_token %}
+        <div class="input-group">
+          <input type="search" name="search" class="form-control" placeholder="متن" aria-label="Search input">
+          <button type="submit" class="btn btn-secondary">جست و جو</button>
+        </div>
+      </form>
+      <!-- <a class="btn btn-success btn mx-4 pd-1 my-2" href="#" role="button">ورود </a> -->
+      
+      <!-- <div class="my-1 me-5">
+        <li class="nav-item dropdown" style="list-style-type: none">
+              <a href="#" class=" btn btn-success nav-link dropdown-toggle" id="navbarAdvancedDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">پنل کاربری</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarAdvancedDropdown">
+                <li>
+                  <a href="#" class="dropdown-item">ورود</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item">ثبت نام</a>
+                </li>
+           
+                 </a>
+                 </ul>
+        </li>
+
+      </div> -->
+      {% if request.user.is_authenticated %}
+    <div class="btn-group dropright my-1 me-2">
+        <!-- <img class="account-image rounded-circle m-auto d-block dropdown-toggle"
+        id="id_profile_link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        width="40",height="40"
+        src="{% static 'articles/img/default-avatar-male.png' %}" alt="عکس-کاربر-آسمان-کشت-آسمانکشت-سنجش-از-دور-سنجش از دور-کشاورزی">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down " viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+        </svg>
+        <figure class="text-center">
+          <blockquote class="blockquote">
+            <p>{{user.username}}</p>
+          </blockquote>
+        <div class="dropdown-menu" aria-labelledby="id_profile_links">
+          <a href="#" class="dropdown-item">خروج</a>
+
+        </div> -->
+        <!-- <button type="button" class="btn btn-outline-danger">Danger</button> -->
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger dropright me-1 "> خروج  </a>
+        <a href="{% url 'password_change' %}" class="btn btn-outline-info dropright me-1   "> گذرواژه  </a>
+
+    </div>
+     {% else %}
+     <div class="btn-group dropright my-1 me-2 ">
+       
+      <!-- <img class="account-image rounded-circle m-auto d-block dropdown-toggle"
+      id="id_profile_link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+      width="40",height="40"
+      src="{% static 'articles/img/default-avatar-male.png' %}" alt="عکس-کاربر-آسمان-کشت-آسمانکشت-سنجش-از-دور-سنجش از دور-کشاورزی">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down " viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+      </svg> -->
+     
+      <!-- <div class="dropdown-menu" aria-labelledby="id_profile_links">
+         <a href="#" class="dropdown-item">عضویت</a> -->
+        <!-- <a href="{% url 'login' %}" class="dropdown-item"> ورود</a> --> 
+
+    
+
+      <!-- </div> -->
+         <a href="{% url 'register' %}" class="btn btn-outline-danger dropright me-1 p1">عضویت</a>
+         <a href="{% url 'login' %}" class="btn btn-outline-info me-2 p1 ">ورود</a>
+      {% endif %}
+ 
+
+
+    </div>
+
+  </div>
+
+</nav>
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>{{message}}</strong> 
+</div>
+
+{% endfor %}
+{% endif%}
+
+
+
+
+{% block content %}
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+<div>
+<footer id="dk-footer" class="dk-footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 col-lg-4">
+              <div class="dk-footer-box-info">
+                <!-- spinner -->
+                
+                <!-- spinner end -->
+                  <a href="{% url 'articles:post_list' %}" class="footer-logo">
+                      <img src="{% static 'articles/img/asemankesht2forweb.png' %}" alt="footer_logo" class="img-fluid">
+                  </a>
+                  <!-- <p class="footer-info-text">
+                     Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.
+                  </p> -->
+                  <div class="footer-social-link text-center">
+                      <h3>ما را دنبال کنید</h3>
+                      <ul>
+                          <!-- <li>
+                              <a href="#">
+                                  <i class="fa fa-facebook">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                      </svg>
+                                  </i>
+                              </a>
+                          </li> -->
+                          <!-- <li>
+                              <a href="#">
+                                  <i class="fa fa-twitter"></i>
+                              </a>
+                          </li> -->
+                          <!-- <li>
+                              <a href="#">
+                                  <i class="fa fa-google-plus"></i>
+                              </a>
+                          </li> -->
+                          <!-- <li>
+                              <a href="#">
+                                  <i class="fa fa-linkedin">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                                      </svg>
+                                  </i>
+                              </a>
+                          </li> -->
+                          <li>
+                              <a href="https://www.instagram.com/asemankesht/">
+                                  <i class="fa fa-instagram">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                      </svg>
+                                  </i>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!-- End Social link -->
+              </div>
+              <!-- End Footer info -->
+              <!-- <div class="footer-awarad">
+                  <img src="images/icon/best.png" alt="">
+                  <p>با آسمان کِشت هوشمندانه کشاورزی کنید</p>
+              </div> -->
+          </div>
+          <!-- End Col -->
+          <div class="col-md-12 col-lg-8">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="contact-us">
+                          <div class="contact-icon">
+                              <i class="fa fa-map-o" aria-hidden="true"></i>
+                          </div>
+                          <!-- End contact Icon -->
+                          <div class="contact-info">
+                              <h3>آدرس :</h3>
+                              <p> تهران، خیابان کارگر شمالی، پردیس دانشکده‌های فنی دانشگاه تهران، دانشکده مهندسی نقشه برداری و اطلاعات مکانی</p>
+                          </div>
+                          <!-- End Contact Info -->
+                      </div>
+                      <!-- End Contact Us -->
+                  </div>
+                  <!-- End Col -->
+                  <div class="col-md-6">
+                      <div class="contact-us contact-us-last">
+                          <div class="contact-icon">
+                              <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                          </div>
+                          <!-- End contact Icon -->
+                          <div class="contact-info">
+                              <h3>09020019123</h3>
+                              <p>با ما تماس بگیرید</p>
+                          </div>
+                          <!-- End Contact Info -->
+                      </div>
+                      <!-- End Contact Us -->
+                  </div>
+                  <!-- End Col -->
+              </div>
+              <!-- End Contact Row -->
+              <div class="row">
+                  <div class="col-md-12 col-lg-6">
+                      <div class="footer-widget footer-left-widget">
+                          <div class="section-heading">
+                              <h3>پیوند های مهم</h3>
+                              <span class="animate-border border-black"></span>
+                          </div>
+                          <ul class="p-4">
+                                <li>
+                                  <a href="{% url 'contactus:contactus' %}">فرم تماس</a>
+                              </li>
+                              <li>
+                                  <a href="{% url 'menus:work' %}">همکاری با ما</a>
+                              </li>
+                              <li>
+                                  <a href="{% url 'register' %}"> ثبت نام در سایت </a>
+                              </li>
+                              <!-- <li>
+                                  <a href="#"> دوره های آموزشی</a>
+                              </li> -->
+                          
+                          </ul>
+                          <ul>
+                              <li>
+                                  <a href="https://isa.ir/">سازمان فضایی ایران</a>
+                              </li>
+                              <li>
+                                  <a href="https://old.sbu.ac.ir/GIS/Pages/default.aspx">مرکز مطالعات سنجش از دور دانشگاه شهید بهشتی</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.ncc.gov.ir/">سازمان نقشه برداری کشور</a>
+                              </li>
+                              <li>
+                                  <a href="https://geospatialeng.ut.ac.ir/">دانشکده مهندسی نقشه برداری و اطلاعات مکانی دانشگاه تهران</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <!-- End Footer Widget -->
+                  </div>
+                  <!-- End col -->
+                  <div class="col-md-12 col-lg-6">
+                      <div class="footer-widget">
+                          <div class="section-heading">
+                              <h3>خبرنامه</h3>
+                              <span class="animate-border border-black"></span>
+                          </div>
+                          <p><!-- Don’t miss to subscribe to our new feeds, kindly fill the form below. -->
+                                برای اطلاع از خبرهای با ارزش جهان ژئوماتیک،
+                                عضو خبرنامه تخصصی آسمان کشت شوید
+                          </p>
+                          <form action="{% url 'subscribe' %} " method="POST"> {% csrf_token %}
+                              <div class="form-row">
+                                  <div class="col dk-footer-form">
+                                    <div class="text-center">
+                                        {{email_form}}
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="              رایانامه">
+                                             <button type="submit">
+                                            <i class="fa fa-send"></i>
+                                        </button>
+                                    </div>
+                                     
+                                  </div>
+                              </div>
+                          </form>
+                          <!-- End form -->
+                      </div>
+                      <!-- End footer widget -->
+                  </div>
+                  <!-- End Col -->
+              </div>
+              <!-- End Row -->
+          </div>
+          <!-- End Col -->
+      </div>
+      <!-- End Widget Row -->
+  </div>
+  <!-- End Contact Container -->
+
+
+  <div class="copyright">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <span>تمامی حقوق مادی و معنوی محفوظ و متعلق به 
+                    استارت آپ آسمان کِشت می باشد.
+                  </span>
+              </div>
+              <!-- End Col -->
+              <div class="col-md-6">
+                  <div class="copyright-menu">
+                      <ul>
+                          <li>
+                              <a href="{% url 'articles:post_list' %}">صفحه اصلی</a>
+                          </li>
+                          <li>
+                              <a href="{% url 'contactus:contactus' %}">فرم تماس</a>
+                          </li>
+                          <!-- <li>
+                              <a href="#">قوانین سایت</a>
+                          </li> -->
+                          <li>
+                              <a href="{% url 'menus:about' %}">درباره ما</a>
+                          </li> 
+                      </ul>
+                  </div>
+              </div>
+              <!-- End col -->
+          </div>
+          <!-- End Row -->
+      </div>
+      <!-- End Copyright Container -->
+  </div>
+  <!-- End Copyright -->
+  <!-- Back to top -->
+  <!-- <div id="back-to-top" class="back-to-top">
+      <button class="btn btn-dark " title="Back to Top" style="display: block;">
+          <i class="fa fa-angle-up"></i>
+      </button>
+  </div> -->
+  <!-- End Back to top -->
+</footer>
+
+
+
+</body>
+
+	<script type="text/javascript" src="{% static 'articles/js/bootstrap.bundle.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'articles/js/script.js' %}"> </script>
+  <script type="text/javascript" src="{% static 'articles/js/ol.js' %}"> </script>
+  {% comment %} animation start {% endcomment %}
+  <script src="http://roshinjose.com/codepen/jquery_002.js"></script>
+  <script src="http://roshinjose.com/codepen/plugins.js"></script>
+  {% comment %} animation end {% endcomment %}
+
+</html>
+</div>

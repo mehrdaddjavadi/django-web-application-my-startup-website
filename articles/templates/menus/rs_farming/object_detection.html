@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+خدمات کشاورزی دقیق
+{% endblock title %}
+{% block content %}
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">شناسایی و پایش عوارض</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+
+     
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+                   شناسایی و پایش عوارض بخش مهمی از سنجش از دور و بینایی رایانه ای محسوب می شود؛ 
+                   که در آن با به کارگیری الگوریتم های هوش مصنوعی(در سال های اخیر بیشتر یادگیری عمیق)
+                   هر نوع تغییرات و یا اشیا را شناسایی می کنیم. ساخت مدل مناسب در شناسایی عوارض تاثیر بسیار بالایی دارد.
+                   از جمله خدمات آسمان کشت در پایش عوارض عبارتند از:
+                   <ul>
+                       <li>شناسایی و ردیابی یک شی خاص(هواپیما، کشتی و...)</li>
+                       <li>تعیین منابع تامین کارخانه های صنعتی</li>
+                       <li>خدمات پردازش تصویر</li>
+                   </ul>
+                   
+
+                </h4>
+                </div>
+                <br>
+                <img class="img-fluid" src="https://imgurl.ir/uploads/s35777_.png" alt="کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+              
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

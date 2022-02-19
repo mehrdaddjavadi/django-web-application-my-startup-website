@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+درباره ما
+{% endblock title %}
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">درباره ما</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+        
+
+
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+       
+                    استارت آپ آسمان کِشت در خرداد ماه سال 1400 توسط مجموعه ای از فارغ التحصیلان و دانشجویان دانشگاه های شهید بهشتی، تهران و خواجه نصیر
+                    .به منظور ایجاد تحول در عرصه کشاورزی دقیق، نقشه برداری و هوش مصنوعی ایجاد گردید
+                    بهره مندی همه آحاد جامعه از تکنولوژی های جدید همچون هوش مصنوعی و سنجش از دور با کمترین هزینه ممکن از اهداف آسمان کشت
+                    محسوب می شوند.
+
+
+                </h4>
+                </div>
+                <br>
+               
+                <br>
+                
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

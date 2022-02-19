@@ -1,0 +1,117 @@
+{% load static %}
+<div>
+<div  id="carouselDark" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="7000" data-bs-pause='click'>
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselDark" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="2"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="3"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="4"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="5"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="6"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="7"></li>
+    <li data-bs-target="#carouselDark" data-bs-slide-to="8"></li>
+    <!-- <li data-bs-target="#carouselDark" data-bs-slide-to="9"></li> -->
+    
+  </ol>
+  <div class="carousel-inner w-600 h" >
+    <div class="carousel-item active">
+      <a href="{% url 'register' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/slide1.png'%}" alt="First slide" class="d-block w-100">
+      </a>
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'menus:object_detection' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/airport.png'%}" alt="Second slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the second slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'menus:precision_agriculture' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/precision agriculture.png'%}" alt="Third slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the third slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'menus:mapping' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/slide-5.png' %}" alt="Fourth slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the fourth slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item ">
+      <a href="{% url 'menus:precision_agriculture' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/slide-2-2.png'%}" alt="First slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item ">
+      <a href="{% url 'menus:subsidence' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/disaster-management.png'%}" alt="First slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'register' %}">
+        <img src="{% static 'articles/img/img for web/high resolution/slide3.png' %}" alt="First slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+      <a href="#">
+        <img src="{% static 'articles/img/img for web/high resolution/gis-slide-2.png' %}" alt="First slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+    
+    <div class="carousel-item">
+      <a href="#">
+        <img src="{% static 'articles/img/img for web/high resolution/object-detection-service-eye-2.png' %}" alt="First slide" class="d-block w-100">
+      </a>
+      
+      <!-- <div class="carousel-caption">
+        <h3>Caption</h3>
+        <p>This text describes the first slide</p>
+      </div> -->
+    </div>
+  </div>
+  <a href="#carouselDark" class="carousel-control-prev" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a href="#carouselDark" class="carousel-control-next" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>

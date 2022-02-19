@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+  تعیین تغییرات پوشش گیاهی
+{% endblock title %}
+{% block content %}
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">تعیین تغییرات پوشش گیاهی</small>
+    </h1>
+
+
+    <div class="postBodyDetail">
+        <div class="m-5 p3 ">
+          <hr class="mt-2 mb-0"/>
+          <hr class="mt-0 mb-0"/>
+          <hr class="mt-0 mb-5"/>
+      
+          <div class="m-5 p5" >
+            <h4 style="line-height: 50px;" >
+                مطالعه تغییرات پوشش گیاهی اهمیت بسیاری در حفاظت از تنوع زیستی، تغییر اقلیم،
+                توسعه پایدار، گردشگری و تغییر اقلیم دارد.  در آسمان کِشت با استفاده از  برترین متخصصین و جدیدترین فناوری ها از جمله پهپاد فتوگرامتری و تصاویر ماهواره ای تغییرات
+                پوشش گیاهی در سطح شهرها، جنگلها و دشت ها  در بازه های زمانی متفاوت بررسی
+                می گردد و نتایج با بالاترین دقت ممکن به ارائه می شوند. علاوه بر این به تغییرات کاربری اراضی نیزباید توجه کرد.
+            </h4>
+            </div>
+            <br>
+            <img class="img-fluid" src="https://www.researchgate.net/profile/Jong-Min-Yeom-2/publication/272737692/figure/fig3/AS:667813249290245@1536230494379/Land-cover-classification-with-RapidEye-satellite-dataleft-original-imagery-with-true.ppm" alt="سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+          
+        </div>
+        </div>
+        <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+        <div class="d-grid col-6 mx-auto">
+          <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+        </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+مکانیابی مراکز خدماتی و رفاهی
+{% endblock title %}
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<div class="container m-5 p3">
+
+    <h1 class="m-5 p2">
+        <small class="text-muted">مکانیابی مراکز خدماتی و رفاهی</small>
+    </h1>
+
+
+    <div class="container m-5 p3">
+        
+
+
+    
+    
+        <div class="postBodyDetail">
+            <div class="m-5 p3 ">
+              <hr class="mt-2 mb-0"/>
+              <hr class="mt-0 mb-0"/>
+              <hr class="mt-0 mb-5"/>
+          
+              <div class="m-5 p5" >
+                <h4 style="line-height: 50px;" >
+                    یکی ازارکان مهم امایش سرزمین درتوسعه پایدار اصل مکان گزینی و مکان یابی بهینه برای انواع فعالیت ها
+                    است. مکانیابی صحیح مانع از وارد شدن خسارت  های جانی و مالی به افراد می شود و از آسیب رسیدن به محیط زیست
+                    جلوگیری می کند. آسمان کشت با تجربه اجرایی در مکانیابی پالایشگاه پتروشیمی، سد زیرزمینی، محل دفن زباله ها  و...
+                    می تواند پروژه های مکانیابی شما را  با بالاترین کیفیت انجام دهد.
+
+
+
+                </h4>
+                </div>
+                <br>
+               
+                <br>
+                <img class="img-fluid center" src="https://www.mdpi.com/sustainability/sustainability-13-01538/article_deploy/html/images/sustainability-13-01538-g008.png" alt="-فرونشست-subsidence-asemankesht-کشاورزی-دقیق-سنجش-از-دور-بررسی-پوشش-گیاهی-آسمان-کشت">
+            </div>
+            </div>
+     
+    
+    </div>
+    <h4 class="h5 text-muted mt-3">فرم تماس</h4>
+    <div class="d-grid col-6 mx-auto">
+      <a href="{% url 'contactus:contactus' %}" type="button" class="btn btn-secondary">تماس با ما</a>
+    </div>
+
+</div>
+
+{% endblock content %}

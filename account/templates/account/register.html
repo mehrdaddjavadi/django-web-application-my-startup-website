@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<style type="text/css">
+
+  .card-signin {
+	  width: 100%;
+	  max-width: 400px;
+	  padding: 15px;
+	  margin: auto;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+</style>
+
+<div class="container-fluid mx-5 my-5">
+	<div class="row justify-content-center">
+		<div class="card card-signin">
+		  <div class="card-body">
+		    <form class="form-signin" method="post">{% csrf_token %}
+				<div class="d-flex flex-column pb-3">
+				<img class="img-fluid mx-auto d-block" src="{% static 'articles/img/asemankesht2forweb.png' %}" alt="ثبت نام سنجش از دور- هئش مصنوعی - کشاورزی دقیق - آسمانکشت -AsemanKesht" width="72" height="72">
+				</div>
+				{% comment %} <input type="text" name="username " id="inputUsername"  class="form-control P1 my-1" placeholder=" نام کاربری " required autofocus
+                onblur="if(this.value==''){ this.value='DefaultValue'; this.style.color='#101010';}"
+                onfocus="if(this.value=='DefaultValue'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+				<input type="email" name="email" id="inputEmail" class="form-control P1 my-1" placeholder="ایمیل" required autofocus
+                 onblur="if(this.value==''){ this.value='DefaultValue'; this.style.color='#101010';}"
+                onfocus="if(this.value=='DefaultValue'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+                <input type="phone2numeric" name="phone" id="inputEmail" class="form-control P1 my-1" placeholder="تلفن همراه" required autofocus
+                                onblur="if(this.value==''){ this.value='DefaultValue'; this.style.color='#101010';}"
+                onfocus="if(this.value=='DefaultValue'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+				<input type="password" name="Password1" id="inputPassword1" class="form-control P1 my-1" placeholder="رمزعبور" required
+                                onblur="if(this.value==''){ this.value='DefaultValue'; this.style.color='#101010';}"
+                onfocus="if(this.value=='DefaultValue'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+				<input type="password" name="Password2" id="inputPassword2" class="form-control P1     " placeholder="تکرار گذرواژه" required
+                                onblur="if(this.value==''){ this.value='DefaultValue'; this.style.color='#101010';}"
+                onfocus="if(this.value=='DefaultValue'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;"> {% endcomment %}
+
+                <input type="text" name="username" id="inputUsername" class="form-control my-2 p1" placeholder="نام کاربری" required 
+                                onblur="if(this.value==''){ this.value='نام کاربری'; this.style.color='#101010';}"
+                onfocus="if(this.value=='نام کاربری'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+                <input type="email" name="email" id="inputEmail" class="form-control my-2 p1" placeholder="ایمیل"  required 
+                                onblur="if(this.value==''){ this.value='ایمیل'; this.style.color='#101010';}"
+                onfocus="if(this.value=='ایمیل'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+                <input type="text" name="phone" id="inputText" class="form-control my-2 p1" placeholder="تلفن همراه" required 
+                                onblur="if(this.value==''){ this.value='تلفن همراه'; this.style.color='#101010';}"
+                onfocus="if(this.value=='تلفن همراه'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+
+				
+
+				<input type="password" name="password1" id="inputPassword1" class="form-control my-2 p1" placeholder="گذرواژه" 
+                                onblur="if(this.value==''){ this.value='گذرواژه'; this.style.color='#101010';}"
+                onfocus="if(this.value=='گذرواژه'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+                <div class="col-auto">
+                    <span id="inputTextInlineHelp" class="form-text">گذرواژه باید شامل حروف و اعداد باشد.</span>
+                </div>
+
+				<input type="password" name="password2" id="inputPassword2" class="form-control my-2 p1" placeholder="تکرار گذرواژه" 
+                                onblur="if(this.value==''){ this.value='تکرار گذرواژه'; this.style.color='#101010';}"
+                onfocus="if(this.value=='تکرار گذرواژه'){ this.value=''; this.style.color='#101010';}"
+                style="color:#101010;">
+
+				{% for field in registration_form %}
+				<p>
+				{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+				{% endfor %}
+				</p>
+				{% endfor %}
+				{% if registration_form.non_field_errors %}
+				<div style="color: red">
+					<p>{{registration_form.non_field_errors}}</p>
+				</div>
+
+				{% endif %}
+
+				
+
+                <div class="d-grid col-6 mx-auto">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block text-center mt-5 p3">ثبت نام</button>
+                </div>
+				</form>
+		  </div>
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

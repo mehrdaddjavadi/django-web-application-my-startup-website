@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<div class="detailMargin m-5 p3">
+
+{% block title %}{{ post.title }}{% endblock title %}
+</div>
+
+{% block content %}
+<div>
+  <img class="card-img-top" src="{{post.cover_image}}" alt="{{post.slug}}">
+</div>
+<br>
+<div class="m-5 p3">
+  <h1 class="text-center">{{ post.title }}</h1>
+</div>
+
+  <div class="postBodyDetail">
+  <div class="m-5 p3 ">
+    <hr class="mt-2 mb-0"/>
+    <hr class="mt-0 mb-0"/>
+    <hr class="mt-0 mb-5"/>
+
+    <div class="m-5 p5" >
+      <h4 style="line-height: 50px;" >{{ post.body }}</h4>
+      </div>
+      <br>
+    
+  </div>
+  </div>
+  <br/>
+  </div>
+  </div>
+  <hr/>
+    <p class="dateArticlesDetail mx-5">
+    منتشر شده در تاریخ {{ post.publish }} 
+    <!-- توسط {{ post.author }} -->
+  </p>
+{% endblock content%}

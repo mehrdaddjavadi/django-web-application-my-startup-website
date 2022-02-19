@@ -1,0 +1,14 @@
+{% load static %}
+<form method="POST" action="#"> {% csrf_token %}
+    <div class="form-row">
+        <div class="col dk-footer-form">
+          <div class="text-center">
+              <input type="email" class="form-control" name="email" placeholder="              رایانامه">
+                   <button type="submit">
+                  <i class="fa fa-send"></i>
+              </button>
+          </div>
+           
+        </div>
+    </div>
+</form>

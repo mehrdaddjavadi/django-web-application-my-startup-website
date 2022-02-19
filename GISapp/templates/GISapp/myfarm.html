@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+</style>
+<title>First OL Sample</title>
+{% load static %}
+<script src='{% static "myfarm/js/ol.js" %}'></script>
+<script src='{% static "myfarm/js/ol-ext.js" %}'></script>
+<link rel="stylesheet" href='{% static "myfarm/js/ol.css" %}' type="text/css">
+<link rel="stylesheet" href='{% static "myfarm/js/ol-ext.css" %}'type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.8.3/dist/ol-layerswitcher.css" />
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/ol-layerswitcher@3.8.3"></script>
+<script src="{% static 'myfarm/js/jquery-3.3.1.min.js' %}"></script>
+ 
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+$.ajax(
+    {
+       type:'GET',
+       dataType: "json",
+       url:"/getdrawings",
+       success: function(data){
+        console.log(data)
+    }
+})
+
+
+
+// 
+// 
+var sampleView=new ol.View({
+center:[51.285,35.6795],
+zoom:10,
+projection:'EPSG:4326'
+});
+
+var osmCustomLayer = new ol.layer.Tile({ 
+		source: new ol.source.OSM({  
+		url:'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png' 
+		}) 
+		});
+		
+osmCustomLayer.set('title', 'OpenStreetMap');//baraye layer switcher
+		
+</script>
+<script>
+//  Vector layer
+var vector = new ol.layer.Vector( { source: new ol.source.Vector() })
+
+vector.set('title', 'مزرعه من');//baraye layer switcher
+</script>
+<script>
+var codadres = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: 'https://raw.githubusercontent.com/TehranGIS/webgis/main/geojson/codadres.geojson'
+    }),
+    style: new ol.style.Style({
+        image: new ol.style.Circle( /** @type {olx.style.IconOptions} */ ({
+            radius: 3,
+            fill: new ol.style.Fill({
+                color: '#B92607'
+            })
+        }))
+    })
+});
+
+codadres.set('title', 'کد آدرس');//baraye layer switcher
+
+_myStroke = new ol.style.Stroke({
+   color : 'rgba(0,255,0)',
+   width : 2.5    
+});
+
+_myFill = new ol.style.Fill({
+   color: '#D5F0D5'
+});
+
+_myStyle = new ol.style.Style({
+   stroke : _myStroke,
+   fill : _myFill
+ });
+
+var parcel = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: 'https://raw.githubusercontent.com/TehranGIS/webgis/main/geojson/parcel.geojson'
+    }),
+    style:_myStyle,
+});
+
+parcel.set('title', 'پارسل');//baraye layer switcher
+
+myStroke = new ol.style.Stroke({
+   color : '#EB6D0F',
+   width : 2    
+});
+
+myFill = new ol.style.Fill({
+   color: '#EB6D0F'
+});
+
+myStyle = new ol.style.Style({
+   stroke : myStroke,
+   fill : myFill
+ });
+
+var branch = new ol.layer.Vector({
+    // source: new ol.source.Vector({
+    //     format: new ol.format.GeoJSON(),
+    //     url: 'https://raw.githubusercontent.com/TehranGIS/webgis/main/geojson/branch.geojson'
+    // }),
+    style:myStyle,
+});
+
+branch.set('title', 'شاخه');//baraye layer switcher
+
+Stroke = new ol.style.Stroke({
+   color : '#0852F2',
+   width : 3.5    
+});
+
+Fill = new ol.style.Fill({
+   color: '#0852F2'
+});
+
+myStyle = new ol.style.Style({
+   stroke : Stroke,
+   fill : Fill
+ });
+
+var pipe = new ol.layer.Vector({
+    // source: new ol.source.Vector({
+    //     format: new ol.format.GeoJSON(),
+    //     url: 'https://raw.githubusercontent.com/TehranGIS/webgis/main/geojson/pipe.geojson'
+    // }),
+    style:myStyle,
+});
+
+pipe.set('title', 'خط لوله');//baraye layer switcher
+
+var map = new ol.Map({
+		layers: [osmCustomLayer,vector],
+        target: 'map',
+        view: sampleView
+        });
+// var map = new ol.Map({
+// 		layers: [osmCustomLayer,parcel,branch,codadres,pipe,vector],
+//         target: 'map',
+//         view: sampleView
+//         });
+		
+		
+var sLayer = new ol.layer.Vector({
+	source: new ol.source.Vector(),
+	style: new ol.style.Style({
+	image: new ol.style.Circle({
+	radius: 5,
+	stroke: new ol.style.Stroke ({
+	color: 'rgb(255,165,0)',
+	width: 3
+	}),
+	fill: new ol.style.Fill({
+	color: 'rgba(255,165,0,.3)'
+	})
+	}),
+	stroke: new ol.style.Stroke ({
+	color: 'rgb(255,165,0)',
+	width: 3
+    }),
+	fill: new ol.style.Fill({
+	color: 'rgba(255,165,0,.3)'
+	})
+	})
+    });
+	
+map.addLayer(sLayer);
+
+sLayer.setVisible(false)
+
+// Set the search control 
+var search = new ol.control.SearchNominatim (
+	{//target: $(".options").get(0),
+	polygon: true,
+	reverse: true,
+	position: true	// Search, with priority to geo position
+	
+	});
+	
+map.addControl (search);
+
+// Select feature when click on the reference index
+search.on('select', function(e)
+	{// console.log(e);
+	sLayer.getSource().clear();
+	// Check if we get a geojson to describe the search
+	if (e.search.geojson) {
+		var format = new ol.format.GeoJSON();
+		var f = format.readFeature(e.search.geojson, { dataProjection: "EPSG:4326", featureProjection: map.getView().getProjection() });
+		sLayer.getSource().addFeature(f);
+		var view = map.getView();
+		var resolution = view.getResolutionForExtent(f.getGeometry().getExtent(), map.getSize());
+		var zoom = view.getZoomForResolution(resolution);
+		var center = ol.extent.getCenter(f.getGeometry().getExtent());
+		// redraw before zoom
+		setTimeout(function(){
+				view.animate({
+				center: center,
+				zoom: Math.min (zoom, 14)
+				});
+			    }, 100);}
+	else 
+		{map.getView().animate({
+	    center:e.coordinate,
+		zoom: Math.max (map.getView().getZoom(),14)
+		});}});
+
+</script>
+<script>		
+// Main control bar
+var mainbar = new ol.control.Bar();
+map.addControl(mainbar);
+
+mainbar.setPosition('top')
+
+// Edit control bar 
+var editbar = new ol.control.Bar({
+  toggleOne: true,	// one control active at the same time
+  group:false			// group controls together
+});
+mainbar.addControl(editbar);
+
+// Add selection tool:
+//  1- a toggle control with a select interaction
+//  2- an option bar to delete / get information on the selected feature
+var sbar = new ol.control.Bar();
+sbar.addControl (new ol.control.Button({
+  html: '<i class="fa fa-times"></i>',
+  title: "Delete",
+  handleClick: function() {
+	var features = selectCtrl.getInteraction().getFeatures();
+	if (!features.getLength()) info("Select an object first...");
+	else info(features.getLength()+" object(s) deleted.");
+	for (var i=0, f; f=features.item(i); i++) {
+	  vector.getSource().removeFeature(f);
+	}
+	selectCtrl.getInteraction().getFeatures().clear();
+  }
+}));
+sbar.addControl (new ol.control.Button({
+  html: '<i class="fa fa-info"></i>',
+  title: "Show informations",
+  handleClick: function() {
+	switch (selectCtrl.getInteraction().getFeatures().getLength()){
+	  case 0: info("Select an object first...");
+		break;
+	  case 1:
+		var f = selectCtrl.getInteraction().getFeatures().item(0);
+		info("Selection is a "+f.getGeometry().getType());
+		break;
+	  default:
+		info(selectCtrl.getInteraction().getFeatures().getLength()+ " objects seleted.");
+		break;
+	}
+  }
+}));
+
+var selectCtrl = new ol.control.Toggle({
+  html: '<i class="fa fa-hand-pointer-o"></i>',
+  title: "Select",
+  interaction: new ol.interaction.Select ({ hitTolerance: 2 }),
+  bar: sbar,
+  autoActivate:true,
+  active:true
+});
+
+editbar.addControl ( selectCtrl);
+
+// Add editing tools
+var pedit = new ol.control.Toggle({
+  html: '<i class="fa fa-map-marker" ></i>',
+  title: 'نقطه',
+  interaction: new ol.interaction.Draw({
+	type: 'Point',
+	source: vector.getSource()
+  })
+});
+editbar.addControl ( pedit );
+
+var ledit = new ol.control.Toggle({
+  html: '<i class="fa fa-share-alt" ></i>',
+  title: 'خط',
+  interaction: new ol.interaction.Draw({
+	type: 'LineString',
+	source: vector.getSource(),
+	// Count inserted points
+	geometryFunction: function(coordinates, geometry) {
+		if (geometry) geometry.setCoordinates(coordinates);
+	  else geometry = new ol.geom.LineString(coordinates);
+	  this.nbpts = geometry.getCoordinates().length;
+	  return geometry;
+	}
+  }),
+  // Options bar associated with the control
+  bar: new ol.control.Bar({
+	controls:[ 
+	  new ol.control.TextButton({
+		html: 'بازگشت به آخرین نقطه',
+		title: "حذف آخرین موقعیت",
+		handleClick: function() {
+		  if (ledit.getInteraction().nbpts>1) ledit.getInteraction().removeLastPoint();
+		}
+	  }),
+	  new ol.control.TextButton({
+		html: 'Finish',
+		title: "پایان",
+		handleClick: function() {
+		  // Prevent null objects on finishDrawing
+		  if (ledit.getInteraction().nbpts>2) ledit.getInteraction().finishDrawing();
+		}
+	  })
+	]
+  }) 
+});
+
+editbar.addControl ( ledit );
+
+var fedit = new ol.control.Toggle({
+  html: '<i class="fa fa-bookmark-o fa-rotate-270" ></i>',
+	title: 'چند ضلعی',
+	interaction: new ol.interaction.Draw({
+	  type: 'Polygon',
+	  source: vector.getSource(),
+	  // Count inserted points
+	  geometryFunction: function(coordinates, geometry) {
+		this.nbpts = coordinates[0].length;
+		if (geometry) geometry.setCoordinates([coordinates[0].concat([coordinates[0][0]])]);
+		else geometry = new ol.geom.Polygon(coordinates);
+		return geometry;
+	  }
+	}),
+	// Options bar ssociated with the control
+	bar: new ol.control.Bar({
+	  controls:[ new ol.control.TextButton({
+		html: 'بازگشت به موقعیت قبل',//'<i class="fa fa-mail-reply"></i>',
+		title: "undo last point",
+		handleClick: function() {
+		  if (fedit.getInteraction().nbpts>1) fedit.getInteraction().removeLastPoint();
+		}
+	  }),
+	  new ol.control.TextButton({
+		html: 'پایان',
+		title: "finish",
+		handleClick: function() {
+		  // Prevent null objects on finishDrawing
+		  if (fedit.getInteraction().nbpts>3) fedit.getInteraction().finishDrawing();
+		}
+	  })
+	]
+  }) 
+});
+editbar.addControl ( fedit );
+
+// Add a simple push button to save features
+var save = new ol.control.Button({
+  html: '<i class="fa fa-download"></i>',
+  title: "Save",
+  handleClick: function(e) {
+	var json= new ol.format.GeoJSON().writeFeatures(vector.getSource().getFeatures());
+	info(json);
+  }
+});
+mainbar.addControl ( save );
+
+// Show info
+function info(i){
+  $("#info").html(i||"");
+}
+</script>
+<script>
+var layerSwitcher = new LayerSwitcher({
+  reverse: true,
+  groupSelectStyle: 'group'
+});
+map.addControl(layerSwitcher);
+//document.getElementsByClassName('ol-unselectable ol-control layer-switcher layer-switcher-group-select-style-group layer-switcher-activation-mode-mouseover')[0].setAttribute("style", "top: 0.5em;")
+</script>
+
+<script>
+//     $.ajax(
+//     {
+//        type:'GET',
+//        dataType: "json",
+//        url:'/getwms',
+//        success: function(data) {
+//            for (var i=0;i<data.length;i++){
+//              wms = new OpenLayers.Layer.WMS(data[i].fields.layer_alias,
+//              data[i].fields.server_address,
+//              {layers:data[i].fields.workspace +":" + data[i].fields.layer_name,transparent:true},
+//              {isBaseLayer : false}
+             
+             
+//              )    
+ 
+//              map.addLayer(wms)
+//            }
+//        }
+//     }
+//  )
+</script>
+
+<script>
+//     $.ajax(
+//     {
+//        type:'GET',
+//        dataType: "json",
+//        url:"getdrawings",
+//        success: function(data){
+//        console.log(data)
+//     }
+// })
+</script>
+</body>
+</html>
